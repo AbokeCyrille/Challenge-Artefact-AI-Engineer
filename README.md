@@ -1,17 +1,18 @@
 # Artefact AI Engineer Challenge — Chat avec les Données Électorales(ELECTION DES DEPUTES A L'ASSEMBLEE NATIONALE)
-Contexte
+
+#                                                               Contexte
 
 Ce projet est une application d’analyse conversationnelle construite à partir d’un PDF officiel des résultats électoraux publié par la CEI (Commission Électorale Indépendante de Côte d’Ivoire).
 
 L’objectif est de permettre à un utilisateur de dialoguer avec le jeu de données afin de :
 
-Répondre à des questions factuelles, strictement basées sur le contenu du PDF
+      -Répondre à des questions factuelles, strictement basées sur le contenu du PDF
 
-Calculer des agrégations, classements et statistiques
+      -Calculer des agrégations, classements et statistiques
 
-Générer des graphiques à la demande
+      -Générer des graphiques à la demande
 
-Améliorer progressivement la robustesse, la sécurité et la readiness production
+      -Améliorer progressivement la robustesse, la sécurité et la readiness production
 
 Le PDF est l’unique source de vérité.
 Aucune information externe n’est utilisée.
@@ -20,7 +21,7 @@ Vue d’ensemble de la solution
 
 La solution repose sur une architecture modulaire, déterministe et orientée production, couvrant les niveaux 1 à 4 du challenge.
 
-1. Pipeline d’ingestion des données
+#                                      1. Pipeline d’ingestion des données
 
 Chargement du PDF officiel des résultats électoraux
 
@@ -28,13 +29,13 @@ Extraction des tableaux (gestion des en-têtes répétés, sauts de ligne, pieds
 
 Nettoyage et normalisation :
 
-accents
+      -accents
 
-casse
+      -casse
 
-entités géographiques
+      -entités géographiques
 
-partis politiques
+      -partis politiques
 
 Stockage des données structurées dans DuckDB
 
@@ -44,27 +45,27 @@ détection automatique des changements
 
 reindexation forcée si le PDF est modifié
 
-2. Agent analytique SQL (Level 1)
+#                                      2. Agent analytique SQL (Level 1)
 
 Détection d’intention :
 
-agrégation
+        -agrégation
 
-classement
+        -classement
 
-visualisation
+        -visualisation
 
 Génération de SQL sécurisé et déterministe
 
 Validation stricte :
 
-SELECT uniquement
+      -SELECT uniquement
 
-LIMIT imposé
+      -LIMIT imposé
 
-schéma contrôlé
+      -schéma contrôlé
 
-Exécution sur DuckDB
+      - Exécution sur DuckDB
 
 Restitution :
 
@@ -74,7 +75,7 @@ aperçu tabulaire
 
 graphiques inline (bar, histogramme, camembert)
 
-3. Routage hybride SQL + RAG (Level 2)
+#                                                3. Routage hybride SQL + RAG (Level 2)
 
 SQL pour :
 
@@ -100,7 +101,7 @@ accents
 
 alias (ex. RHDP, R.H.D.P, forme longue)
 
-4. Couche agentique (Level 3)
+#                                     4. Couche agentique (Level 3)
 
 Détection automatique des ambiguïtés :
 
@@ -118,7 +119,7 @@ conservation du choix utilisateur
 
 réutilisation dans les requêtes suivantes
 
-5. Observabilité & Évaluation (Level 4)
+#                                      5. Observabilité & Évaluation (Level 4)
 Observabilité
 
 Traçage complet de chaque requête :
@@ -153,7 +154,7 @@ résultats par type de requête
 
 Liste détaillée des échecs avec diagnostic
 
-Structure du projet
+Structure du projet: 
 Artefact_ChatVote/
 ├── ingestion/
 │   ├── ingest_pdf.py          # Pipeline PDF → DataFrame → DuckDB
@@ -233,21 +234,10 @@ Rejets explicites des requêtes hors périmètre
 
 Comportement non-réponse clair si l’information n’est pas dans le dataset
 
-Lancer l’application
+# Lancer l’application:
 pip install -r requirements.txt
 streamlit run app.py
 
-Livrables
-
-Code source reproductible
-
-Pipeline d’ingestion
-
-Application web
-
-Tests et évaluation offline
-
-README détaillé
 
 Observabilité et traçage
 
@@ -265,4 +255,6 @@ Tests de charge
 
 Déploiement cloud
 
-Ce projet démontre une approche complète allant de l’extraction de données à une application conversationnelle robuste, sécurisée et observable, conforme aux attentes d’un poste d’AI Engineer chez Artefact.
+#                                                                 6. Conclusion
+
+Ce projet démontre une approche end-to-end, depuis l’ingestion de données non structurées jusqu’à une application conversationnelle analytique , sécurisée et observable. 
