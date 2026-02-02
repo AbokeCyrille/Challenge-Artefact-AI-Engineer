@@ -157,9 +157,13 @@ Liste détaillée des échecs avec diagnostic
 Structure du projet: 
 <img width="467" height="323" alt="image" src="https://github.com/user-attachments/assets/617c0ca6-3b75-4ca5-90b0-62a104b17ae8" />
 
+
+
+
 suite:
 
-<img width="278" height="242" alt="image" src="https://github.com/user-attachments/assets/41c6342c-945a-42ce-9490-ae162601db6c" />
+![Image_rag](https://github.com/user-attachments/assets/04eb3977-ad89-4a22-a9e3-cd3b097aa55c)
+
 
 Stack technique
 
