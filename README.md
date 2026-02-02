@@ -156,7 +156,7 @@ Liste détaillée des échecs avec diagnostic
 
 Structure du projet: 
 <img width="437" height="437" alt="image" src="https://github.com/user-attachments/assets/851f302f-9851-444b-bee6-2ded0be3cd99" />
-
+suite:
 
 <img width="278" height="242" alt="image" src="https://github.com/user-attachments/assets/41c6342c-945a-42ce-9490-ae162601db6c" />
 
@@ -192,6 +192,8 @@ Comportement non-réponse clair si l’information n’est pas dans le dataset
  -Ensuite créez un dossiers models à l'intérieur de "Mon_dossier" et ajouter "sqlcoder-7b-q5_k_m.gguf" à l'intérieur
  dont le lien de téléchargement est :https://huggingface.co/TheBloke/sqlcoder-7B-GGUF/blob/main/sqlcoder-7b.Q5_K_M.gguf.
 -Entrer dans le dossier "Mon_dossier" puis dans l'invite de commande activez l'environnement virtuel.
+
+
 Tapez: 
    pip install -r requirements.txt
    streamlit run app.py
