@@ -1,0 +1,14 @@
+# Environnement virtuel
+.venv/
+venv/
+
+# Variables d'environnement
+.env
+
+# Modèles LLM lourds
+models/*.gguf
+
+# Cache Python
+__pycache__/
+*.pyc
+
