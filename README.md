@@ -155,6 +155,8 @@ résultats par type de requête
 Liste détaillée des échecs avec diagnostic
 
 Structure du projet: 
+![Uploading image.png…]()
+
 Artefact_ChatVote/
 ├── ingestion/
 │   ├── ingest_pdf.py          # Pipeline PDF → DataFrame → DuckDB
