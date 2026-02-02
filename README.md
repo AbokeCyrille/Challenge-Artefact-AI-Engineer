@@ -152,7 +152,12 @@ taux de succès global
 
 résultats par type de requête
 
-Liste détaillée des échecs avec diagnostic
+Liste détaillée des échecs avec diagnostic.
+
+
+
+
+
 
 Structure du projet: 
 <img width="467" height="323" alt="image" src="https://github.com/user-attachments/assets/617c0ca6-3b75-4ca5-90b0-62a104b17ae8" />
