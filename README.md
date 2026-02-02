@@ -155,60 +155,8 @@ résultats par type de requête
 Liste détaillée des échecs avec diagnostic
 
 Structure du projet: 
-![Uploading image.png…]()
-
-Artefact_ChatVote/
-├── ingestion/
-│   ├── ingest_pdf.py          # Pipeline PDF → DataFrame → DuckDB
-│   ├── clean_tables.py        # Nettoyage, normalisation, accents
-│   ├── commune_mapping.py     # Mapping et standardisation des communes
-│   └── versioning.py          # Hash du PDF (dataset versioning)
-│
-├── data/
-│   ├── elections.duckdb       # Base analytique finale
-│   ├── raw/                   # PDF source (single source of truth)
-│   └── processed/             # CSV intermédiaires, index FAISS
-│
-├── agents/
-│   ├── router.py              # Orchestrateur principal (intent → tool)
-│   ├── intent_matcher.py      # Classification sémantique des questions
-│   ├── sql_agent.py           # SQL déterministe (requêtes sûres)
-│   ├── sqlcoder_agent.py      # LLM local (SQL complexe)
-│   ├── disambiguator.py       # Ambiguïtés (Abidjan, Tiapoum…)
-│   ├── entity_resolver.py     # Fuzzy matching + regex (partis, lieux)
-│   ├── param_extractor.py     # Extraction des nombres, plages, seuils
-│   └── agents_normalizer.py   # Normalisation texte pour agents
-│
-├── rag/
-│   ├── indexer.py             # Construction de l’index FAISS
-│   ├── retriever.py           # Recherche sémantique
-│   └── rag_agent.py           # Réponses textuelles narratives
-│
-├── app/
-│   ├── ui.py                  # Interface Streamlit (chat)
-│   ├── state.py               # Session state (messages, entités)
-│   └── charts.py              # Visualisations Matplotlib / Plotly
-│
-├── observability/
-│   └── tracer.py              # Tracing end-to-end (TraceRun)
-│
-├── eval/
-│   ├── datasets.py            # Jeux de tests (EVAL_SET)
-│   └── run_eval.py            # Logique d’évaluation unitaire
-│
-├── safety/
-│   ├── policy.py              # Guardrails (contenu interdit)
-│   └── sql_validator.py       # Sécurité SQL (SELECT-only, LIMIT)
-│
-├── Evaluation_final.py        #  Script principal d’évaluation offline
-│                              #     run_eval()
-│                              #     summarize()
-│                              #     affichage des échecs
-│
-├── app.py                     # Point d’entrée Streamlit
-├── .env.example               # Variables d’environnement
-├── requirements.txt           # Dépendances
-└── README.md                  # Documentation recruteur
+<img width="437" height="437" alt="image" src="https://github.com/user-attachments/assets/851f302f-9851-444b-bee6-2ded0be3cd99" />
+<img width="278" height="242" alt="image" src="https://github.com/user-attachments/assets/41c6342c-945a-42ce-9490-ae162601db6c" />
 
 Stack technique
 
@@ -237,8 +185,14 @@ Rejets explicites des requêtes hors périmètre
 Comportement non-réponse clair si l’information n’est pas dans le dataset
 
 # Lancer l’application:
-pip install -r requirements.txt
-streamlit run app.py
+ -D'abord télécharger tous les fichiers sur ce repo pour mettre dans un dossier que vous
+ allez nommé à votre choix; ex: "Mon_dossier". Mais avant ça créez un environnement virtuel.
+ -Ensuite créez un dossiers models à l'intérieur de "Mon_dossier" et ajouter "sqlcoder-7b-q5_k_m.gguf" à l'intérieur
+ dont le lien de téléchargement est :https://huggingface.co/TheBloke/sqlcoder-7B-GGUF/blob/main/sqlcoder-7b.Q5_K_M.gguf.
+-Entrer dans le dossier "Mon_dossier" puis dans l'invite de commande activez l'environnement virtuel.
+Tapez: 
+   pip install -r requirements.txt
+   streamlit run app.py
 
 
 Observabilité et traçage
@@ -255,7 +209,10 @@ Export des traces vers un backend d’observabilité
 
 Tests de charge
 
-Déploiement cloud
+#  Schema de l'application User-> Système
+
+![Uploading image.png…]()
+
 
 #                                                                 6. Conclusion
 
