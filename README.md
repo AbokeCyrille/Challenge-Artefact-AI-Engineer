@@ -1,4 +1,4 @@
-Artefact AI Engineer Challenge — Chat avec les Données Électorales(ELECTION DES DEPUTES A L'ASSEMBLEE NATIONALE)
+# Artefact AI Engineer Challenge — Chat avec les Données Électorales(ELECTION DES DEPUTES A L'ASSEMBLEE NATIONALE)
 Contexte
 
 Ce projet est une application d’analyse conversationnelle construite à partir d’un PDF officiel des résultats électoraux publié par la CEI (Commission Électorale Indépendante de Côte d’Ivoire).
