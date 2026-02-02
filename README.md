@@ -202,10 +202,10 @@ Comportement non-réponse clair si l’information n’est pas dans le dataset
 Tapez: 
 
 
-   pip install -r requirements.txt
+#   pip install -r requirements.txt
 
    
-   streamlit run app.py
+#   streamlit run Application.py
 
 
 Observabilité et traçage
