@@ -155,7 +155,8 @@ résultats par type de requête
 Liste détaillée des échecs avec diagnostic
 
 Structure du projet: 
-<img width="437" height="437" alt="image" src="https://github.com/user-attachments/assets/851f302f-9851-444b-bee6-2ded0be3cd99" />
+<img width="467" height="323" alt="image" src="https://github.com/user-attachments/assets/617c0ca6-3b75-4ca5-90b0-62a104b17ae8" />
+
 suite:
 
 <img width="278" height="242" alt="image" src="https://github.com/user-attachments/assets/41c6342c-945a-42ce-9490-ae162601db6c" />
