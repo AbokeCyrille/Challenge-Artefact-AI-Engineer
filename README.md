@@ -159,7 +159,9 @@ Liste détaillée des échecs avec diagnostic.
 
 
 
-Structure du projet: 
+# Archietecture du projet: 
+
+
 <img width="467" height="323" alt="image" src="https://github.com/user-attachments/assets/617c0ca6-3b75-4ca5-90b0-62a104b17ae8" />
 
 
@@ -170,31 +172,49 @@ suite:
 ![Image_rag](https://github.com/user-attachments/assets/04eb3977-ad89-4a22-a9e3-cd3b097aa55c)
 
 
-Stack technique
+-Stack technique
 
-Python
+-Python
 
-DuckDB (moteur analytique local)
+-DuckDB (moteur analytique local)
 
-Streamlit (interface web)
+-Streamlit (interface web)
 
-SQLCoder (LLM local pour génération SQL)
+-SQLCoder (LLM local pour génération SQL)
 
-RAG / Vector Search
+-RAG / Vector Search
 
-Matplotlib (visualisation)
+-Matplotlib (visualisation)
 
 Sécurité & garde-fous
 
-Réponses limitées strictement au contenu du PDF
+-Réponses limitées strictement au contenu du PDF
 
-Interdiction des opérations SQL destructrices
+-Interdiction des opérations SQL destructrices
 
-LIMIT forcé sur toutes les requêtes
+-LIMIT forcé sur toutes les requêtes
 
-Rejets explicites des requêtes hors périmètre
+-Rejets explicites des requêtes hors périmètre
 
-Comportement non-réponse clair si l’information n’est pas dans le dataset
+-Comportement non-réponse clair si l’information n’est pas dans le dataset.
+
+L'application utilise une stratégie à deux niveaux pour garantir à la fois la précision des données et la souplesse de l'interaction :
+
+# Niveau Déterministe (Fast & Reliable)
+Modèle utilisé : all-MiniLM-L6-v2 (via Sentence-Transformers).
+
+Fonctionnement : Ce modèle léger transforme la question de l'utilisateur en un vecteur numérique. Il compare ensuite ce vecteur avec les exemples stockés dans agents/intent_catalog.py (Calcul de similarité cosinus).
+
+Cas d'usage : Si la question correspond à une intention connue (ex: "Top 5 des candidats", "Résultats par commune"), le système appelle directement la requête SQL pré-optimisée du catalogue. Cela garantit 0% d'erreur de syntaxe SQL et une réponse instantanée.
+
+ # Niveau Génératif (Fallback / Complex Queries)
+Modèle utilisé : sqlcoder-7b-q5_k_m.gguf (via Llama-cpp-python).
+
+Fonctionnement : Si le score de similarité avec le catalogue est trop faible (intention inconnue), le système passe le relais à SQLCoder.
+
+Cas d'usage : Pour les requêtes croisées complexes que nous n'avons pas anticipées dans le catalogue. Le LLM analyse le schéma de la base DuckDB et génère dynamiquement la requête SQL nécessaire pour répondre précisément à l'utilisateur.
+# agents/router.py :
+C'est lorchestrateur de notre système, toute la chaine décrite précédement est géré là.
 
 # Lancer l’application:
  -D'abord télécharger tous les fichiers sur ce repo pour mettre dans un dossier que vous
