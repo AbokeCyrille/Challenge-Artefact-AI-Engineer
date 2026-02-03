@@ -239,15 +239,15 @@ Observabilité et traçage
 
 Architecture documentée
 
-Limitations & prochaines étapes
+# Limitations & prochaines étapes:
 
-Enrichissement du jeu de tests d’évaluation
+  -Enrichissement du jeu de tests d’évaluation
 
-Ajout de métriques de performance
+  -Ajout de métriques de performance
 
-Export des traces vers un backend d’observabilité
+  -Export des traces vers un backend d’observabilité
 
-Tests de charge
+  -Tests de charge
 
 #  Schema de l'application User-> Système
 
