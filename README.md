@@ -232,7 +232,7 @@ Tapez:
    
 #   streamlit run Application.py
 
-#   Evaluation_final.py : Pour l'évalution offline
+#  python Evaluation_final.py : Pour l'évalution offline
 
 
 Observabilité et traçage
